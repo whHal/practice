@@ -1,0 +1,67 @@
+* INTEGER REGISTERS
+
+1st integer/pointer: rdi
+2nd integer/pointer: rsi
+3rd integer/pointer: rdx
+4th integer/pointer: rcx
+5th integer/pointer: r8
+6th integer/pointer: r9
+
+7th integer/pointer & beyond:
+
+    -Goes on the stack, right to left, last argument is pushed first.
+
+* FLOATING POINT REGISTERS
+
+The first register is 'xmm0', with the zero denoting the register until
+you reach xmm7. Any FP arguments beyond that will end up on the stack.
+
+* RETURN VALUES
+
+Integer/Pointer (up to 64 bits): rax
+Integer 65-128 bits:             rdx:rax
+Floating point:                  xmm0
+
+* VARIADIC FUNCTIONS
+
+These are functions that can take a variable number of arguments
+(i.e. printf and scanf). 
+
+- Set rax to the number of vector (XMM) registers used for arguments
+- for integer-only calls, set rax to = 0
+
+* CALLER-SAVED (VOLATILE) REGISTERS
+
+These registers can be freely modified by any function, so you must save
+any value you want preserved located in these registers yourself.
+
+rax
+rcx
+rdx
+rsi
+rdi
+r8
+r9
+r10
+r11
+xmm0-xmm15
+
+* CALLEE-SAVED (NON-VOLATILE) REGISTERS
+
+A function that calls these must save these for you.
+
+rbx: General purpose register
+rbp: Frame pointer
+rsp: Stack pointer
+r12: General purpose register
+r13: General purpose register
+r14: General purpose register
+r15: General purpose register
+
+* STACK RULES
+
+Must be aligned before call: rsp must be 16-byte aligned.
+
+Stack growth: Downward toward lower addresses
+
+Red zone: 128 bytes below rsp are safe to use without adjusting rsp

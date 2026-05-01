@@ -1,0 +1,5 @@
+Here is a cheat sheet of compilation commands for programs that use syscall
+
+* COMPILE, LINK, AND RUN
+
+    - nasm -f elf64 hello.asm -o hello.o && ld hello.o -o hello && ./hello

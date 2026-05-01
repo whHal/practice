@@ -1,0 +1,27 @@
+Syscall Number: rax
+
+    Tells the kernel what are you doing.
+    
+    syscall nums:
+        - 0   = read
+        - 1   = write
+        - 2   = open
+        - 3   = close
+        - 4   = stat
+        - 8   = lseek
+        - 9   = mmap
+        - 12  = brk
+        - 39  = getpid
+        - 60  = exit
+        - 79  = getcwd
+        - 318 = getrandom 
+
+Syscall Argument Register Order:
+    
+    1. rdi
+    2. rsi
+    3. rdx
+    4. r10
+    5. r8
+    6. r9
+    7. rax (return value)
